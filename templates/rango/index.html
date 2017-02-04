@@ -10,10 +10,11 @@
 	
 	<body> 
 		<h1>Rango says...</h1> 
-		<div>hey there partner!</div>
+		<div>hey there partner!</div><br />
 		
 		<div>
 		{% if categories %}
+		<strong>Most Liked Categories</strong>
 		<ul>
 			{% for category in categories %}
 			<!-- Following lines changed to add an html hyperlink -->
@@ -26,6 +27,18 @@
 			<strong>There are no categories present</strong>
 		{% endif %}
 		</div>
+		
+		<div>
+		{% if pages %}
+		<strong>Most Viewed Pages</strong>
+		<ul>
+			{% for page in pages %}
+			<li>
+			<a href="{{ page.url }}">{{ page.title }}</a>
+			</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
 		
 		<div> 
 			<a href="/rango/about/">About Rango</a><br /> 

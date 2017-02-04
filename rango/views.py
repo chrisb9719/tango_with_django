@@ -9,9 +9,9 @@ def index(request):
     # Retrieve the top 5 only - or all if less than 5.
     # Place the list in our context_dict dictionary
     # that will be passed to the template engine.
-
+    pages_list = Page.objects.order_by("-views")[:5]
     category_list = Category.objects.order_by('-likes')[:5]
-    context_dict = {'categories': category_list}
+    context_dict = {'categories': category_list, 'pages': pages_list}
 
     # Render the request and send it back!
     return render(request, 'rango/index.html', context_dict)
