@@ -182,7 +182,7 @@ def user_login(request):
         # with matching credentials was found
         if user:
             # Is the account active? It could have been disabled
-            if user.is_active():
+            if user.is_active:
                 # If the account is valid and active, we can log the user in
                 # We'll send the user back to the homepage
                 login(request, user)
@@ -205,7 +205,7 @@ def user_login(request):
 
 @login_required
 def restricted(request):
-    return HttpResponse("Since you're logged in, you can see this text!")
+    return render(request, 'rango/restricted.html', {})
 
 # Use the login_required() decorator to ensure that only those logged in can access
 # the view

@@ -15,7 +15,9 @@
 				<li><a href="{{ page.url }}">{{ page.title }}</a></li>
 			{% endfor %}
 			</ul>
-		<a href="{% url 'add_page' category.slug %}">Add a Page</a> 	
+			{% if user.is_authenticated %}
+				<a href="{% url 'add_page' category.slug %}">Add a Page</a>
+			{% endif %}
 		{% else %}
 			<strong>No pages currently in category.</strong>
 		{% endif %}
