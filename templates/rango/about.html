@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+{% load staticfiles %} <!-- New line -->
+
+<html>
+	<head>
+		<title>About</title>
+	</head>
+	
+	<body>
+		<div>
+			<strong>{{ boldmessage }}</strong><br />
+		</div>
+		<div>
+			<img src="{{MEDIA_URL}}cat.jpg"><br />
+			<a href="/rango/">Home</a><br />
+		</div>
+	</body>
+</html>
+		
