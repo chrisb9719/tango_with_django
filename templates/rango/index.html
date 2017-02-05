@@ -1,51 +1,40 @@
-<!DOCTYPE html>
+{% extends 'rango/base.html' %}
 {% load staticfiles %} <!-- New line -->
 
-<html>
-
-	<head> 
-		<title>Rango</title> 
-	</head>
-	
-	
-	<body> 
-		<h1>Rango says...</h1> 
-		<div>hey there partner!</div><br />
+{% block body_block %} 
+	<h1>Rango says...</h1> 
+	<div>hey there partner!</div><br />
 		
-		<div>
-		{% if categories %}
-		<strong>Most Liked Categories</strong>
-		<ul>
-			{% for category in categories %}
-			<!-- Following lines changed to add an html hyperlink -->
-				<li>
-				<a href="/rango/category/{{ category.slug }}">{{ category.name }}</a>
-				</li>
-			{% endfor %}
-		</ul>
-		{% else %}
-			<strong>There are no categories present.</strong>
-		{% endif %}
-		</div>
-		
-		<div>
-		{% if pages %}
-		<strong>Most Viewed Pages</strong>
-		<ul>
-			{% for page in pages %}
+	<div>
+	{% if categories %}
+	<strong>Most Liked Categories</strong>
+	<ul>
+		{% for category in categories %}
+		<!-- Following lines changed to add an html hyperlink -->
 			<li>
-			<a href="{{ page.url }}">{{ page.title }}</a>
+			<a href="{% url 'show_category' category.slug %}">{{ category.name }}</a>
 			</li>
-			{% endfor %}
-		</ul>
-		{% endif %}
+		{% endfor %}
+	</ul>
+	{% else %}
+		<strong>There are no categories present.</strong>
+	{% endif %}
+	</div>
 		
-		<div> 
-			<a href="/rango/about/">About Rango</a><br />
-			<a href="/rango/add_category/">Add a New Category</a><br /> 			
-			<img src="{% static "images/rango.jpg "%}" 
-			alt="Picture of Rango" />
-		</div> 
-	</body>
-
-</html>
+	<div>
+	{% if pages %}
+	<strong>Most Viewed Pages</strong>
+	<ul>
+		{% for page in pages %}
+		<li>
+		<a href="{{ page.url }}">{{ page.title }}</a>
+		</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+		
+	<div> 
+		<img src="{% static "images/rango.jpg "%}" 
+		alt="Picture of Rango" />
+	</div>
+{% endblock %}	
