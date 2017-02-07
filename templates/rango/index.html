@@ -1,15 +1,13 @@
 {% extends 'rango/base.html' %}
-{% load staticfiles %} <!-- New line -->
+{% load staticfiles %}
 
 {% block body_block %} 
-	<h1>Rango says...</h1> 
-	<div>
-		{% if user.is_authenticated %}
-			howdy {{ user.username }}!
-		{% else %}
-			hey there partner!
-		{% endif %}
-	</div><br />
+	<h1>Rango says... 
+	{% if user.is_authenticated %}
+		howdy {{ user.username }}!
+	{% else %}
+		hey there partner!
+	{% endif %}</h1>
 		
 	<div>
 	{% if categories %}
