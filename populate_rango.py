@@ -52,7 +52,7 @@ def populate():
             "Django": {"pages": django_pages, "likes": 32, "views": 64},
             "Other Frameworks": {"pages": other_pages, "likes": 16, "views": 32} }
 
-# If you want to add more catergories or pages, www.tangowithdjango.com Models and Databases
+# If you want to add more categories or pages, www.tangowithdjango.com Models and Databases
 
 # add them to the dictionaries above.
 # The code below goes through the cats dictionary, then adds each category,
