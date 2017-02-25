@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rango',
+    'registration',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'tango_with_django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Workspace/tango_with_django_project/templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,4 +135,15 @@ USE_TZ = True
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
-LOGIN_URL = '/rango/login/'
+LOGIN_URL = '/accounts/login/'
+
+
+# If True, the users can register
+REGISTRATION_OPEN = True
+# One-week activation window, you may, of course, use a different value
+ACCOUNT_ACTIVATION_DAYS=7
+# If true, the users will be automatically logged in
+LOGIN_REDIRECT_URL = '/rango/'
+# The page users are directed to if they are not logged in,
+# and are trying to access pages requiring authentication.
+LOGIN_URL='/accounts/login/'
